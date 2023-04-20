@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body{
+    background: #1b1b1b;
+    color: #ffffff;
+    font-family: Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+}
+.App{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    padding: 30px 30px 6px 45px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+  
+
+.movieCard img{
+    height: 350px;
+    width: 230px;
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    image-rendering: pixelated;
+    object-fit: cover;
+    
+}
+.movieCard{
+    height: 425px;
+    width: 230px;
+    margin-right: 30px;
+    cursor: pointer;
+    background: #1b1b1b;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    transition: all 0.2s ease-in-out; 
+    /* transition: all 0.2s ease-in-out; specifies that when the :hover state is 
+    activated and the size of the .movieCard element changes, the transition will 
+    be smooth and not sudden or jarring to the viewer. */
+}
+.movieCard:hover{
+    transform: scale(1.12);
+    height: 404px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    /* margin-left: 5%;
+    margin-right: 5%; */
+    
+    /* margin-right and margin-left is set to 0, so that the adjacent .movieCard will 
+    slide to the right and left, instead of being hidden behind the hovered one. */
+}
+
+::-webkit-scrollbar {
+    overflow: hidden;
+  }
+.title{
+    text-align: center;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+}
+.search{
+    border-radius: 15px;
+    height: 35px;
+    width: 300px;
+    margin-right: 45px;
+   
+}
+.topContainer{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    background: #141414;
+    width: 100%;
+    height: 80px;
+    padding-left: 7px;
+    top:0;
+    right:0;
+    left:0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    z-index: 5;
+    align-items: center;
+
+}
+.midContainer{
+    margin-top: 50px;
+}
+.heading{
+    margin-left: 45px;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: 700;
+}  
+
+.imgContainer{
+    position: relative; /*position is relative so that the favourites can overlay on the image*/
+}
+.favourites{
+    opacity: 0;
+
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* favourites will appear when we hover over movieCard */
+.movieCard:hover .favourites{
+    opacity: 0.6;
+}
+.banner img{
+    margin-top:90px ;
+    width: 95%;
+    height: 580px;
+    margin-left: 45px;
+    opacity: 0.4;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.banner{
+    position: relative;
+}
+.logo{
+    position: relative;
+}
+.banner img{
+    opacity: 0; /* Set the initial opacity to 0 */
+    animation: fadeIn 3s ease-in-out forwards; /* Set the animation to fade in over 2 seconds */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; } /* Set the starting opacity to 0 */
+    to { opacity: 1; } /* Set the ending opacity to 1 */
+  }
+
+  .mainText {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideUp 1s ease-in-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .mainText {
+    opacity: 1;
+    transform: translateY(0);
+    width:50%;
+    margin-left: 80px;
+    position:absolute;
+    top:0;
+    margin-top:230px;
+    text-shadow:2px 2px 5px rgba(0, 0, 0, 0.8);
+  }
+
+  .mainText span{
+    font-family: sans-serif;
+        font-size:4rem;
+        font-weight:600;
+        color: white;
+  }
+  
+  @media (max-width: 900px){
+    .mainText{
+        width:80%;
+    }
+    .mainText span{
+        font-size:2rem;
+        font-weight:700;
+    }
+    .mainText h1{
+        font-size:1.5rem;
+    }
+    .mainText h2{
+        font-size:1rem;
+    }
+    .search{
+        width: 150px;
+        margin-right: 10px;
+    }
+    .heading{
+        margin-left: 0;
+        font-size: 10px;
+    }
+  }
