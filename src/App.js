@@ -24,7 +24,7 @@ function App() {
 const getMovieRequest = async (searchValue) => {
 
 //step2. Construct a URL using the `searchValue` parameter and an API key.
-  const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+  const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
   //console.log(searchValue)
 
 //step3. Send a request to the OMDb API using the `fetch` method and wait for the response.
